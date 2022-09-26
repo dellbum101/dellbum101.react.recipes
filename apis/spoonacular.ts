@@ -6,6 +6,16 @@ import ingredientSearchResults from './ingredientSearchResults.json'
 import { Recipe, RecipeIngredient } from './spoonacular.types'
 
 const BASE_URL = 'https://api.spoonacular.com/'
+const RECIPE_IMAGE_PATH = 'https://spoonacular.com/recipeImages/' // https://spoonacular.com/recipeImages/579247-556x370.jpg
+// 90x90, 240x150, 312x150, 312x231, 480x360, 556x370, 636x393,
+const INGREDIENT_IMAGE_PATH = 'https://spoonacular.com/cdn/ingredients_' // https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
+// 100x100, 250x250, 500x500
+const EQUIPMENT_IMAGE_PATH = 'https://spoonacular.com/cdn/equipment_' // https://spoonacular.com/cdn/equipment_100x100/slow-cooker.jpg
+// 100x100, 250x250, 500x500
+const PRODUCT_IMAGE_PATH = 'https://spoonacular.com/productImages/' // https://spoonacular.com/productImages/35507-636x393.jpg
+// 90x90, 312x231, 636x393
+const MENUITEM_IMAGE_PATH = 'https://images.spoonacular.com/file/wximages/' // https://images.spoonacular.com/file/wximages/423186-636x393.png
+// 90x90, 312x231, 636x393
 
 export type SearchReceipeResult = SearchResult<ReceipeHeader>
 export type SearchIngredientResult = SearchResult<IngredientHeader>
