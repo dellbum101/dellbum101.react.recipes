@@ -16,9 +16,9 @@ export type Recipe = {
   analyzedInstructions: RecipeInstructions[]
   cheap: boolean
   creditsText: string
-  cuisines: string[]
+  cuisines: RecipeCuisineTypes[] | string[]
   dairyFree: boolean
-  diets: string[]
+  diets: RecipeDietTypes[] | string[]
   gaps: string
   glutenFree: boolean
   instructions: string
@@ -92,6 +92,49 @@ export enum RecipeDishTypes {
   FINGER_FOOD = 'fingerfood',
   SNACK = 'snack',
   DRINK = 'drink',
+}
+
+export enum RecipeCuisineTypes {
+  AFRICAN = 'African',
+  AMERICAN = 'American',
+  BRITISH = 'British',
+  CAJUN = 'Cajun',
+  CARIBEAN = 'Caribbean',
+  CHINESE = 'Chinese',
+  EASTERN_EUROPEAN = 'Eastern European',
+  EUROPEAN = 'European',
+  FRENCH = 'French',
+  GERMAN = 'German',
+  GREEK = 'Greek',
+  INDIAN = 'Indian',
+  IRISH = 'Irish',
+  ITALIAN = 'Italian',
+  JAPANESE = 'Japanese',
+  JEWISH = 'Jewish',
+  KOREAN = 'Korean',
+  LATIN_AMERICAN = 'Latin American',
+  MEDITERRANEAN = 'Mediterranean',
+  MEXICAN = 'Mexican',
+  MIDDLE_EASTERN = 'Middle Eastern',
+  NORDIC = 'Nordic',
+  SOUTHERN = 'Southern',
+  SPANISH = 'Spanish',
+  THAI = 'Thai',
+  VIETNAMESE = 'Vietnamese',
+}
+
+export enum RecipeDietTypes {
+  GLUTEN_FREE = 'Gluten Free',
+  KETOGENIC = 'Ketogenic',
+  VEGETARIAN = 'Vegetarian',
+  LACTO_VEGETARIAN = 'Lacto-Vegetarian',
+  OVO_VAGETARIAN = 'Ovo-Vegetarian',
+  VEGAN = 'Vegan',
+  PESCETARIAN = 'Pescetarian',
+  PALEO = 'Paleo',
+  PRIMAL = 'Primal',
+  LOW_FODMAP = 'Low FODMAP',
+  WHOLE30 = 'Whole30',
 }
 
 export type RecipeInstructions = {
