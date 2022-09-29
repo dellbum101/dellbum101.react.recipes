@@ -90,7 +90,9 @@ export async function SearchRecipes(
 
 export async function GetAllIngredients(): Promise<RecipeIngredient[]> {
   // TODO: convert ingredints properly
-  return ingredientSearchResults.results as unknown as RecipeIngredient[]
+  return (
+    ingredientSearchResults.results as unknown as RecipeIngredient[]
+  ).slice(0, 15)
 }
 
 export async function GetRecipe(id: number): Promise<Recipe | undefined> {
@@ -98,7 +100,7 @@ export async function GetRecipe(id: number): Promise<Recipe | undefined> {
 }
 
 export async function GetAllRecipes(): Promise<Recipe[]> {
-  return allRecipes
+  return allRecipes.slice(0, 15)
 }
 
 // export async function GetAllRecipes() {

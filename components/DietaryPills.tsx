@@ -6,7 +6,7 @@ type Props = { recipe: Recipe }
 const FULFILLS_DIET = 'bg-lime-600'
 const NOT_FULFILLS_DIET = 'bg-gray-300'
 const PILL_CLASSES =
-  'm-1 rounded-full w-8 h-8 pt-1 inline-block text-center text-white text-sm tooltip tooltip-bottom tooltip-small'
+  'rounded-full w-8 h-8 pt-1 inline-block text-center text-white text-sm tooltip tooltip-bottom tooltip-small'
 
 const DietaryPills = ({ recipe }: Props) => {
   return (
