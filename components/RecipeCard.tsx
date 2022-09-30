@@ -11,7 +11,6 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { Recipe } from '../apis/spoonacular.types'
 import DietaryPills from './DietaryPills'
-import PopUpMenu from './PopUpMenu'
 
 type Props = {
   recipe: Recipe
@@ -20,7 +19,10 @@ type Props = {
 const RecipeCard = ({ recipe }: Props) => {
   return (
     <div className="basis-1/5 rounded-lg border relative" key={recipe.id}>
-      <div className="opacity-0 absolute flex flex-col gap-5 justify-center align-middle text-center z-10 text-sm rounded shadow-lg p-2 bg-black text-white hover:opacity-80 bg-opacity-90 w-full h-full">
+      <div
+        className="opacity-0 absolute flex flex-col gap-5 justify-center align-middle text-center z-10 text-sm rounded p-2 text-white hover:opacity-90 w-full h-full"
+        style={{ backdropFilter: 'blur(5px) brightness(15%)' }}
+      >
         <div className="text-sm hover:scale-110">
           <Link href={`/recipe/${recipe.id}`}>
             <a>
@@ -34,17 +36,23 @@ const RecipeCard = ({ recipe }: Props) => {
             </a>
           </Link>
         </div>
-        <ul>
-          <li className="hover:scale-110 cursor-pointer">
-            <PlaylistAdd htmlColor="green" /> Add To Menu
-          </li>
-          <li className="hover:scale-110 cursor-pointer">
-            <Favorite htmlColor="red" /> Add To Favorites
-          </li>
-          <li className="hover:scale-110 cursor-pointer">
-            <ThumbDown htmlColor="white" /> Never Suggest This
-          </li>
-        </ul>
+        <div className="flex flex-row justify-between px-10 mb-28">
+          <div className="hover:scale-110 cursor-pointe">
+            <PlaylistAdd htmlColor="green" />
+            <br />
+            Add
+          </div>
+          <div className="hover:scale-110 cursor-pointe">
+            <Favorite htmlColor="red" />
+            <br />
+            Favorite
+          </div>
+          <div className="hover:scale-110 cursor-pointe">
+            <ThumbDown htmlColor="gray" />
+            <br />
+            Hide
+          </div>
+        </div>
       </div>
       <div>
         <img

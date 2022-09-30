@@ -1,4 +1,4 @@
-import { FavoriteBorder, Favorite, Add } from '@mui/icons-material'
+import { FavoriteBorder, Favorite, PlaylistAdd } from '@mui/icons-material'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -52,7 +52,7 @@ export default function Details() {
                 className="inline-block tooltip tooltip-left"
                 data-text="Add Recipe To Meal"
               >
-                <Add
+                <PlaylistAdd
                   htmlColor="green"
                   fontSize="large"
                   className="hover:scale-125"
