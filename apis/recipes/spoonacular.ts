@@ -1,9 +1,9 @@
 import { writeFile } from 'fs/promises'
 import { env } from 'process'
-import recipeSearchResults from './recipeSearchResults.json'
-import allRecipes from './allRecipes.json'
-import ingredientSearchResults from './ingredientSearchResults.json'
-import { Recipe, RecipeIngredient } from './spoonacular.types'
+import recipeSearchResults from './data/recipeSearchResults.json'
+import allRecipes from './data/allRecipes.json'
+import ingredientSearchResults from './data/ingredientSearchResults.json'
+import { Recipe, RecipeIngredient } from './recipe.types'
 
 const BASE_URL = 'https://api.spoonacular.com/'
 const RECIPE_IMAGE_PATH = 'https://spoonacular.com/recipeImages/' // https://spoonacular.com/recipeImages/579247-556x370.jpg
@@ -88,19 +88,8 @@ export async function SearchRecipes(
 //   return searchResults
 // }
 
-export async function GetAllIngredients(): Promise<RecipeIngredient[]> {
-  // TODO: convert ingredints properly
-  return (
-    ingredientSearchResults.results as unknown as RecipeIngredient[]
-  ).slice(0, 15)
-}
-
 export async function GetRecipe(id: number): Promise<Recipe | undefined> {
   return allRecipes.find((recipe) => recipe.id === id)
-}
-
-export async function GetAllRecipes(): Promise<Recipe[]> {
-  return allRecipes.slice(0, 15)
 }
 
 // export async function GetAllRecipes() {

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Recipe } from '../apis/spoonacular.types'
+import { Recipe } from '../apis/recipes/recipe.types'
 
 type Props = { recipe: Recipe }
 

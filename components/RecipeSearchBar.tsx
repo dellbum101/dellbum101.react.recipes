@@ -4,7 +4,7 @@ import {
   RecipeDietTypes,
   RecipeDishTypes,
   RecipeIngredient,
-} from '../apis/spoonacular.types'
+} from '../apis/recipes/recipe.types'
 import PopUpMenu from './PopUpMenu'
 
 type Props = {

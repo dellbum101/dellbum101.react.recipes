@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { GetAllIngredients, GetAllRecipes } from '../apis/spoonacular'
-import { Recipe, RecipeIngredient } from '../apis/spoonacular.types'
+import { GetAllIngredients } from '../apis/recipes/getAllIngredients'
+import { GetAllRecipes } from '../apis/recipes/getAllRecipes'
+import { Recipe, RecipeIngredient } from '../apis/recipes/recipe.types'
 import NavBar from '../components/NavBar'
 import RecipeCard from '../components/RecipeCard'
 import RecipeSearchBar, {
@@ -31,7 +32,6 @@ const Home = ({
     selectedDishTypes: new Set([]),
     selectedIngredients: new Set([]),
   })
-  const [isFilterDirty, setIsFilterDirty] = useState(false)
 
   useEffect(() => {
     async function getRecipes() {
@@ -59,8 +59,7 @@ const Home = ({
     }
 
     getRecipes()
-    setIsFilterDirty(false)
-  }, [filter, allRecipes, isFilterDirty])
+  }, [filter, allRecipes])
 
   if (!recipes) {
     return null
