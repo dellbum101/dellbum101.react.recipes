@@ -141,7 +141,7 @@ const RecipeSearchBar = ({ allIngredients, onFilterChnage }: Props) => {
 
   return (
     <>
-      <div className="hidden w-80 relative md:block">
+      <div className="hidden w-80 relative md:block mr-2">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg
             className="w-5 h-5 text-gray-500"
@@ -170,7 +170,7 @@ const RecipeSearchBar = ({ allIngredients, onFilterChnage }: Props) => {
       <div>
         <div className="relative inline-block">
           <button
-            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-3 shadow-md"
+            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-1 shadow-md"
             onClick={() => setShowDishTypeFilter(!showDishTypeFilter)}
           >
             Dish Types ({selectedDishTypes.size})
@@ -217,7 +217,7 @@ const RecipeSearchBar = ({ allIngredients, onFilterChnage }: Props) => {
         </div>
         <div className="relative inline-block">
           <button
-            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-3 shadow-md"
+            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-1 shadow-md"
             onClick={() => setShowCusineFilter(!showCusineFilter)}
           >
             Cuisines ({selectedCuisines.size})
@@ -264,7 +264,7 @@ const RecipeSearchBar = ({ allIngredients, onFilterChnage }: Props) => {
         </div>
         <div className="relative inline-block">
           <button
-            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-3 shadow-md"
+            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-1 shadow-md"
             onClick={() => setShowDietFilter(!showDietFilter)}
           >
             Dietary ({selectedDiets.size})
@@ -311,7 +311,7 @@ const RecipeSearchBar = ({ allIngredients, onFilterChnage }: Props) => {
         </div>
         <div className="relative inline-block">
           <button
-            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-3 shadow-md"
+            className="bg-blue-400 text-white px-4 py-1 rounded-full mx-1 shadow-md"
             onClick={() => setShowIngredientFilter(!showIngredientFilter)}
           >
             Ingredients ({selectedIngredients.size})
@@ -389,8 +389,8 @@ const RecipeSearchBar = ({ allIngredients, onFilterChnage }: Props) => {
           )}
         </div>
       </div>
-      <button className="px-4 py-1 mx-3" onClick={clearFilters}>
-        Clear Filters
+      <button className="px-4 py-1 mx-1" onClick={clearFilters}>
+        Clear
       </button>
     </>
   )
