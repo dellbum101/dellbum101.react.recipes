@@ -18,7 +18,7 @@ type Props = { allRecipes: Recipe[] }
 const week = ({ allRecipes }: Props) => {
   return (
     <>
-      <NavBar />
+      <NavBar currentPage="plan" />
 
       <div className="app container h-screen flex flex-col bg-white mx-auto p-5 rounded overflow-hidden shadow-lg">
         <div className="text-xl font-bold">Plan The Week</div>

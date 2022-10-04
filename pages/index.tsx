@@ -67,7 +67,7 @@ const Home = ({
 
   return (
     <>
-      <NavBar />
+      <NavBar currentPage="home" />
 
       <div className="app container h-screen flex flex-col bg-white mx-auto p-5 rounded overflow-hidden shadow-lg">
         <div className="p-5 flex flex-row">

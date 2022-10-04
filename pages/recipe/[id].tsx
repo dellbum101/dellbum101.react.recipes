@@ -34,7 +34,7 @@ export default function Details() {
 
   return (
     <>
-      <NavBar />
+      <NavBar currentPage="recipe" />
 
       <div className="app container bg-white mx-auto p-5 rounded overflow-hidden shadow-lg">
         <Link href={`/`}>
