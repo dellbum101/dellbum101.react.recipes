@@ -1,5 +1,5 @@
 import { Search } from '@mui/icons-material'
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import {
   RecipeCuisineTypes,
   RecipeDietTypes,
@@ -9,16 +9,36 @@ import { RecipeSearchContext } from '../src/context/RecipeSearchContext'
 import ListSelectionFilter from './ListSelectionFilter'
 import ListSelectionFilterWithSearch from './ListSelectionFilterWithSearch'
 
-export type RecipeSearchFilter = {
-  recipeSearchTerm: string
-  selectedCuisines: Set<string>
-  selectedDiets: Set<string>
-  selectedDishTypes: Set<string>
-  selectedIngredients: Set<string>
-}
+const dishTypeOptions = (
+  Object.keys(RecipeDishTypes) as Array<keyof typeof RecipeDishTypes>
+).map((dish) => ({
+  title: RecipeDishTypes[dish],
+  value: RecipeDishTypes[dish].toLowerCase(),
+}))
+
+const cuisineOptions = (
+  Object.keys(RecipeCuisineTypes) as Array<keyof typeof RecipeCuisineTypes>
+).map((cuisine) => ({
+  title: RecipeCuisineTypes[cuisine],
+  value: RecipeCuisineTypes[cuisine],
+}))
+
+const dietaryOptions = (
+  Object.keys(RecipeDietTypes) as Array<keyof typeof RecipeDietTypes>
+).map((diet) => ({
+  title: RecipeDietTypes[diet],
+  value: RecipeDietTypes[diet].toLowerCase(),
+}))
 
 const RecipeSearchBar = () => {
   const searchContext = useContext(RecipeSearchContext)
+
+  const ingredientOptions = useMemo(() => {
+    return searchContext.ingredients.map((ingredient) => ({
+      title: ingredient.name,
+      value: ingredient.name.toLowerCase(),
+    }))
+  }, [searchContext.ingredients])
 
   return (
     <>
@@ -42,48 +62,28 @@ const RecipeSearchBar = () => {
         <ListSelectionFilter
           buttonText="Dish Types"
           filterTitle="Select Dish Types"
-          options={(
-            Object.keys(RecipeDishTypes) as Array<keyof typeof RecipeDishTypes>
-          ).map((dish) => ({
-            title: RecipeDishTypes[dish],
-            value: RecipeDishTypes[dish].toLowerCase(),
-          }))}
+          options={dishTypeOptions}
           selectedItems={searchContext.selectedDishTypes}
           setItemsSelected={searchContext.toggleSelectedDishTypes}
         />
         <ListSelectionFilter
           buttonText="Cuisines"
           filterTitle="Select Cuisines"
-          options={(
-            Object.keys(RecipeCuisineTypes) as Array<
-              keyof typeof RecipeCuisineTypes
-            >
-          ).map((cuisine) => ({
-            title: RecipeCuisineTypes[cuisine],
-            value: RecipeCuisineTypes[cuisine],
-          }))}
+          options={cuisineOptions}
           selectedItems={searchContext.selectedCuisines}
           setItemsSelected={searchContext.toggleSelectedCuisine}
         />
         <ListSelectionFilter
           buttonText="Dietary"
           filterTitle="Select Diets"
-          options={(
-            Object.keys(RecipeDietTypes) as Array<keyof typeof RecipeDietTypes>
-          ).map((diet) => ({
-            title: RecipeDietTypes[diet],
-            value: RecipeDietTypes[diet].toLowerCase(),
-          }))}
+          options={dietaryOptions}
           selectedItems={searchContext.selectedDiets}
           setItemsSelected={searchContext.toggleSelectedDiet}
         />
         <ListSelectionFilterWithSearch
           buttonText="Ingredients"
           filterTitle="Select Preferred Ingredients"
-          options={searchContext.ingredients.map((ingredient) => ({
-            title: ingredient.name,
-            value: ingredient.name.toLowerCase(),
-          }))}
+          options={ingredientOptions}
           selectedItems={searchContext.selectedIngredients}
           setItemsSelected={searchContext.toggleSelectedIngredient}
           searchTerm={searchContext.ingredientSearchTerm}

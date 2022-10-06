@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
-type Options = { title: string; value: string }
+export type OptionType = { title: string; value: string }
 
 type Props = {
   buttonText: string
   filterTitle: string
-  options: Options[]
+  options: OptionType[]
   selectedItems: Set<string>
   setItemsSelected: (item: string, isSelected: boolean) => void
 }
