@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useMemo, useState } from 'react'
+import { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { GetAllIngredients } from '../../apis/recipes/getAllIngredients'
 import { GetAllRecipes } from '../../apis/recipes/getAllRecipes'
 import { Recipe, RecipeIngredient } from '../../apis/recipes/recipe.types'
@@ -87,21 +87,34 @@ export const RecipeSearchProvider: FC<Props> = ({ children }: Props) => {
     })
   }, [allIngredients, ingredientSearchTerm])
 
-  const toggleSelectedDishTypes = (dishType: string, isSelected: boolean) => {
-    toggleSelectedItemInList(dishType, isSelected, setSelectedDishTypes)
-  }
-  const toggleSelectedCuisine = (cuisine: string, isSelected: boolean) => {
-    toggleSelectedItemInList(cuisine, isSelected, setSelectedCuisines)
-  }
-  const toggleSelectedDiet = (diet: string, isSelected: boolean) => {
-    toggleSelectedItemInList(diet, isSelected, setSelectedDiets)
-  }
-  const toggleSelectedIngredient = (
-    ingredientName: string,
-    isSelected: boolean
-  ) => {
-    toggleSelectedItemInList(ingredientName, isSelected, setSelectedIngredients)
-  }
+  const toggleSelectedDishTypes = useCallback(
+    (dishType: string, isSelected: boolean) => {
+      toggleSelectedItemInList(dishType, isSelected, setSelectedDishTypes)
+    },
+    []
+  )
+  const toggleSelectedCuisine = useCallback(
+    (cuisine: string, isSelected: boolean) => {
+      toggleSelectedItemInList(cuisine, isSelected, setSelectedCuisines)
+    },
+    []
+  )
+  const toggleSelectedDiet = useCallback(
+    (diet: string, isSelected: boolean) => {
+      toggleSelectedItemInList(diet, isSelected, setSelectedDiets)
+    },
+    []
+  )
+  const toggleSelectedIngredient = useCallback(
+    (ingredientName: string, isSelected: boolean) => {
+      toggleSelectedItemInList(
+        ingredientName,
+        isSelected,
+        setSelectedIngredients
+      )
+    },
+    []
+  )
 
   const clearFilters = () => {
     setSelectedDishTypes(new Set<string>())
