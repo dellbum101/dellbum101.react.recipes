@@ -11,30 +11,36 @@ import ListSelectionFilterWithSearch from './ListSelectionFilterWithSearch'
 
 const dishTypeOptions = (
   Object.keys(RecipeDishTypes) as Array<keyof typeof RecipeDishTypes>
-).map((dish) => ({
-  title: RecipeDishTypes[dish],
-  value: RecipeDishTypes[dish].toLowerCase(),
-}))
+)
+  .sort()
+  .map((dish) => ({
+    title: RecipeDishTypes[dish],
+    value: RecipeDishTypes[dish].toLowerCase(),
+  }))
 
 const cuisineOptions = (
   Object.keys(RecipeCuisineTypes) as Array<keyof typeof RecipeCuisineTypes>
-).map((cuisine) => ({
-  title: RecipeCuisineTypes[cuisine],
-  value: RecipeCuisineTypes[cuisine],
-}))
+)
+  .sort()
+  .map((cuisine) => ({
+    title: RecipeCuisineTypes[cuisine],
+    value: RecipeCuisineTypes[cuisine],
+  }))
 
 const dietaryOptions = (
   Object.keys(RecipeDietTypes) as Array<keyof typeof RecipeDietTypes>
-).map((diet) => ({
-  title: RecipeDietTypes[diet],
-  value: RecipeDietTypes[diet].toLowerCase(),
-}))
+)
+  .sort()
+  .map((diet) => ({
+    title: RecipeDietTypes[diet],
+    value: RecipeDietTypes[diet].toLowerCase(),
+  }))
 
 const RecipeSearchBar = () => {
   const searchContext = useContext(RecipeSearchContext)
 
   const ingredientOptions = useMemo(() => {
-    return searchContext.ingredients.map((ingredient) => ({
+    return searchContext.ingredients.sort().map((ingredient) => ({
       title: ingredient.name,
       value: ingredient.name.toLowerCase(),
     }))
