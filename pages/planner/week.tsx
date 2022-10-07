@@ -1,4 +1,3 @@
-import { Add } from '@mui/icons-material'
 import React from 'react'
 import { GetAllRecipes } from '../../apis/recipes/getAllRecipes'
 import { Recipe } from '../../apis/recipes/recipe.types'

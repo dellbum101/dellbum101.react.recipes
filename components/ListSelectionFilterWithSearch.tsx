@@ -1,6 +1,5 @@
 import { Search } from '@mui/icons-material'
-import React, { useCallback, useState } from 'react'
-import { RecipeDishTypes } from '../apis/recipes/recipe.types'
+import React, { useState } from 'react'
 
 type Options = { title: string; value: string }
 
