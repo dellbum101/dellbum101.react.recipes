@@ -124,10 +124,10 @@ export const RecipeSearchProvider: FC<Props> = ({ children }: Props) => {
   }
 
   const clearFilters = () => {
-    selectedCuisines.clear()
-    selectedDiets.clear()
-    selectedDishTypes.clear()
-    selectedIngredients.clear()
+    setSelectedDishTypes(new Set<string>())
+    setSelectedCuisines(new Set<string>())
+    setSelectedDiets(new Set<string>())
+    setSelectedIngredients(new Set<string>())
     setIsFilterDirty(true)
   }
 
