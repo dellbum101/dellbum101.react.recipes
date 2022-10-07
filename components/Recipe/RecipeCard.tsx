@@ -6,8 +6,8 @@ import {
 } from '@mui/icons-material'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { Recipe } from '../apis/recipes/recipe.types'
-import DietaryPills from './DietaryPills'
+import { Recipe } from '../../apis/recipes/recipe.types'
+import DietaryPills from '../DietaryPills'
 
 type Props = {
   recipe: Recipe

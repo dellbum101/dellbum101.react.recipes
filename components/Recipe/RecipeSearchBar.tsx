@@ -4,10 +4,10 @@ import {
   RecipeCuisineTypes,
   RecipeDietTypes,
   RecipeDishTypes,
-} from '../apis/recipes/recipe.types'
-import { RecipeSearchContext } from '../src/context/RecipeSearchContext'
-import ListSelectionFilter from './ListSelectionFilter'
-import ListSelectionFilterWithSearch from './ListSelectionFilterWithSearch'
+} from '../../apis/recipes/recipe.types'
+import { RecipeSearchContext } from '../../src/context/RecipeSearchContext'
+import ListSelectionFilter from '../ListSelectionFilter'
+import ListSelectionFilterWithSearch from '../ListSelectionFilterWithSearch'
 
 const dishTypeOptions = (
   Object.keys(RecipeDishTypes) as Array<keyof typeof RecipeDishTypes>

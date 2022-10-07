@@ -7,7 +7,7 @@ import { Recipe } from '../../apis/recipes/recipe.types'
 import DietaryPills from '../../components/DietaryPills'
 import NavBar from '../../components/NavBar'
 import NutritionalFacts from '../../components/NutritionalFacts'
-import RecipeInstructions from '../../components/RecipeInstructions'
+import RecipeInstructions from '../../components/Recipe/RecipeInstructions'
 
 export default function Details() {
   const {

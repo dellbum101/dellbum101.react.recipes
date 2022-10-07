@@ -1,15 +1,12 @@
 import NavBar from '../components/NavBar'
-import RecipeSearch from '../components/RecipeSearch'
-import { RecipeSearchProvider } from '../src/providers/RecipeSearchProvider'
+import RecipeSearch from '../components/Recipe/RecipeSearch'
 
 const Home = () => {
   return (
     <>
       <NavBar currentPage="home" />
 
-      <RecipeSearchProvider>
-        <RecipeSearch />
-      </RecipeSearchProvider>
+      <RecipeSearch />
     </>
   )
 }

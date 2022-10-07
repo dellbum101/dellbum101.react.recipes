@@ -67,6 +67,8 @@ export const RecipeSearchProvider: FC<Props> = ({ children }: Props) => {
     console.log('MEMO - Filtered Recipes: ', filteredRecipes)
 
     return filteredRecipes
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .slice(0, 15)
   }, [
     allRecipes,
     recipeSearchTerm,
