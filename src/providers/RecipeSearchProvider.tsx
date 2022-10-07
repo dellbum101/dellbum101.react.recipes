@@ -10,6 +10,7 @@ import { GetAllIngredients } from '../../apis/recipes/getAllIngredients'
 import { GetAllRecipes } from '../../apis/recipes/getAllRecipes'
 import { Recipe, RecipeIngredient } from '../../apis/recipes/recipe.types'
 import { RecipeSearchContext } from '../context/RecipeSearchContext'
+import { toggleSelectedItemInList } from '../utils/toggleSelectedItemInList'
 
 type Props = {
   children: ReactNode
@@ -91,36 +92,20 @@ export const RecipeSearchProvider: FC<Props> = ({ children }: Props) => {
     })
   }, [allIngredients, ingredientSearchTerm])
 
-  const toggleSelectedItem = (
-    item: string,
-    isSelected: boolean,
-    setSelectedItem: (value: SetStateAction<Set<string>>) => void
-  ) => {
-    setSelectedItem((selectedItems) => {
-      if (isSelected) {
-        selectedItems.add(item)
-      } else {
-        selectedItems.delete(item)
-      }
-      return new Set(selectedItems.values())
-    })
-    setIsFilterDirty(true)
-  }
-
   const toggleSelectedDishTypes = (dishType: string, isSelected: boolean) => {
-    toggleSelectedItem(dishType, isSelected, setSelectedDishTypes)
+    toggleSelectedItemInList(dishType, isSelected, setSelectedDishTypes)
   }
   const toggleSelectedCuisine = (cuisine: string, isSelected: boolean) => {
-    toggleSelectedItem(cuisine, isSelected, setSelectedCuisines)
+    toggleSelectedItemInList(cuisine, isSelected, setSelectedCuisines)
   }
   const toggleSelectedDiet = (diet: string, isSelected: boolean) => {
-    toggleSelectedItem(diet, isSelected, setSelectedDiets)
+    toggleSelectedItemInList(diet, isSelected, setSelectedDiets)
   }
   const toggleSelectedIngredient = (
     ingredientName: string,
     isSelected: boolean
   ) => {
-    toggleSelectedItem(ingredientName, isSelected, setSelectedIngredients)
+    toggleSelectedItemInList(ingredientName, isSelected, setSelectedIngredients)
   }
 
   const clearFilters = () => {
