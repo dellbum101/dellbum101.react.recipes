@@ -1,10 +1,11 @@
 import { Add } from '@mui/icons-material'
 import React from 'react'
 import { Recipe } from '../apis/recipes/recipe.types'
+import { ReceipeHeader } from '../apis/recipes/spoonacular'
 
 type Props = {
   name: string
-  recipes: Recipe[]
+  recipes: ReceipeHeader[]
   calories: number
   macros: { fat: number; protein: number; carbs: number }
 }
